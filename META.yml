@@ -1,0 +1,40 @@
+---
+name: CGI-LZE
+version: 0.24
+author:
+  - 'Dirk Lindner <lindnerei@o2online.de>'
+abstract: A simple CGI subclass
+license: lgpl
+resources:
+  license: http://opensource.org/licenses/artistic-license.php
+requires:
+  CGI: 3.29
+  MD5: 2.03
+  Module::Build: 0.2808
+  Test::More: 0.7
+  Test::Pod: 1.26
+  Test::Pod::Coverage: 0.55
+  Test::Signature: 1.1
+provides:
+  CGI::LZE:
+    file: lib/CGI/LZE.pm
+    version: 0.24
+  CGI::LZE::Actions:
+    file: lib/CGI/LZE/Actions.pm
+    version: 0.24
+  CGI::LZE::Config:
+    file: lib/CGI/LZE/Config.pm
+    version: 0.24
+  CGI::LZE::Session:
+    file: lib/CGI/LZE/Session.pm
+    version: 0.24
+  CGI::LZE::Settings:
+    file: lib/CGI/LZE/Settings.pm
+    version: 0.24
+  CGI::LZE::Translate:
+    file: lib/CGI/LZE/Translate.pm
+    version: 0.24
+generated_by: Module::Build version 0.2808
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

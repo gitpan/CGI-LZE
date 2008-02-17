@@ -1,0 +1,27 @@
+Build.PL
+cgi-bin/config/actions.pl
+cgi-bin/config/settings.pl
+cgi-bin/config/translate.pl
+Changes
+examples/content.pl
+examples/do.pl
+lib/CGI/LZE.pm
+lib/CGI/LZE/Actions.pm
+lib/CGI/LZE/Config.pm
+lib/CGI/LZE/Session.pm
+lib/CGI/LZE/Settings.pm
+lib/CGI/LZE/Translate.pm
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/00-signature.t
+t/01-coverage.t
+t/02-pod.t
+t/03-translate.t
+t/04-lze.t
+t/05-session.t
+t/06-actions.t
+t/07-Settings.t
+t/content.pl
+t/settings.pl
