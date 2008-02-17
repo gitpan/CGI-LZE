@@ -1,4 +1,4 @@
-CGI::LZE version 0.24
+CGI::LZE version 0.25
 ======================
 
 CGI::LZE ist eine subclass von CGI die dir ein komplettes framework zum erstllen einer
@@ -22,7 +22,6 @@ This module requires these other modules and libraries:
 
 'CGI' => 3.29,
 'Test::More' => 0.7,
-'Test::Signature' => 1.10,
 'Module::Build' => 0.2808,
 'Test::Pod' => 1.26,
 'Test::Pod::Coverage' => 0.55,

@@ -9,7 +9,6 @@ use CGI::LZE::Session;
 use CGI::LZE::Actions;
 use CGI qw(-compile :all :html2 :html3 :html4  :cgi :cgi-lib  -private_tempfiles);
 
-# use HTML::Entities;
 require Exporter;
 use vars qw(
   $params
@@ -47,7 +46,7 @@ $defaultconfig     = '%CONFIG%';
 # Überschreiben : $AutoloadClass = 'CGI::Lze';                                                                    #
 ###################################################################################################################
 $CGI::AutoloadClass = 'CGI';
-$CGI::LZE::VERSION  = '0.24';
+$CGI::LZE::VERSION  = '0.25';
 $mod_perl           = ($ENV{MOD_PERL}) ? 1 : 0;
 our $hold = 120;    #session ist 120 sekunden gültig.
 @ISA              = qw(Exporter CGI );
@@ -360,6 +359,10 @@ sub getSelf {
         return @_ if defined($_[0]) && (!ref($_[0])) && ($_[0] eq 'CGI::LZE');
         return (defined($_[0]) && (ref($_[0]) eq 'CGI::LZE' || UNIVERSAL::isa($_[0], 'CGI::LZE'))) ? @_ : ($CGI::LZE::DefaultClass->new, @_);
 }
+
+=head2 see Also
+
+L<CGI> L<CGI::LZE::Action> L<CGI::LZE::Translate> L<CGI::LZE::Settings> L<CGI::LZE::Config>
 
 =head1 AUTHOR
 

@@ -74,7 +74,7 @@ SUBCLASS
 my $inctance = $class->new(
         get_options => {skip => {store => \$skip},},
         module_name => 'CGI::LZE',
-        requires => {'CGI' => 3.29, 'Test::More' => 0.7, 'Test::Signature' => 1.10, 'Module::Build' => 0.2808, 'Test::Pod' => 1.26, 'Test::Pod::Coverage' => 0.55, 'MD5' => 2.03,},
+        requires => {'CGI' => 3.29, 'Test::More' => 0.7, 'Module::Build' => 0.2808, 'Test::Pod' => 1.26, 'Test::Pod::Coverage' => 0.55, 'MD5' => 2.03,},
         ($] >= 5.005 ? (AUTHOR => 'Dirk Lindner <lindnerei@o2online.de>') : ()),
         dist_abstract      => "A simple CGI subclass",
         license            => "lgpl",
@@ -130,7 +130,7 @@ $settings = {
              scriptAlias   => $alias,
              uploads   => {maxlength  => 2003153,               path  => "$htd/downloads/", chmod => 0644, enabled => 1},
              tree      => {navigation => "$cgi/config/tree.pl", links => "$cgi/config/links.pl"},
-             version   => '0.24',
+             version   => '0.25',
              session   => "$cgi/config/session.pl",
              actions   => "$cgi/config/actions.pl",
              translate => "$cgi/config/translate.pl",

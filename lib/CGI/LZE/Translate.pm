@@ -6,7 +6,7 @@ use vars qw($ACCEPT_LANGUAGE $lang $DefaultClass @EXPORT  @ISA $defaultconfig);
 @CGI::LZE::Translate::EXPORT = qw(loadTranslate saveTranslate $lang);
 use CGI::LZE::Config;
 @ISA                          = qw(Exporter CGI::LZE::Config);
-$CGI::LZE::Translate::VERSION = '0.24';
+$CGI::LZE::Translate::VERSION = '0.25';
 $DefaultClass                 = 'CGI::LZE::Translate' unless defined $CGI::LZE::Translate::DefaultClass;
 $defaultconfig                = '%CONFIG%';
 

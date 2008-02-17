@@ -1,12 +1,12 @@
 package CGI::LZE::Session;
-# use strict;
-# use warnings;
+use strict;
+use warnings;
 require Exporter;
 use vars qw( $session $DefaultClass @EXPORT  @ISA $defaultconfig);
 @CGI::LZE::Session::EXPORT = qw(loadSession saveSession $session);
 use CGI::LZE::Config;
 @CGI::LZE::Session::ISA     = qw(Exporter CGI::LZE::Config);
-$CGI::LZE::Session::VERSION = '0.24';
+$CGI::LZE::Session::VERSION = '0.25';
 $DefaultClass               = 'CGI::LZE::Session' unless defined $CGI::LZE::Session::DefaultClass;
 $defaultconfig              = '%CONFIG%';
 

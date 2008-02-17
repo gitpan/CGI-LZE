@@ -1,11 +1,12 @@
 package CGI::LZE::Config;
+
 # use strict;
 # use warnings;
 require Exporter;
 use vars qw($config $DefaultClass @EXPORT  @ISA $defaultconfig);
 @CGI::LZE::Config::EXPORT  = qw(loadConfig saveConfig $config);
 @ISA                       = qw(Exporter);
-$CGI::LZE::Config::VERSION = '0.24';
+$CGI::LZE::Config::VERSION = '0.25';
 $DefaultClass              = 'CGI::LZE::Config' unless defined $CGI::LZE::Config::DefaultClass;
 $defaultconfig             = '%CONFIG%';
 

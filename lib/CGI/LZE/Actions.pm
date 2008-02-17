@@ -1,12 +1,12 @@
 package CGI::LZE::Actions;
-# use strict;
-# use warnings;
+use strict;
+use warnings;
 require Exporter;
 use vars qw($actions $DefaultClass @EXPORT  @ISA $defaultconfig);
 @CGI::LZE::Actions::EXPORT = qw(loadActions saveActions $actions);
 use CGI::LZE::Config;
 @CGI::LZE::Actions::ISA     = qw( Exporter CGI::LZE::Config);
-$CGI::LZE::Actions::VERSION = '0.24';
+$CGI::LZE::Actions::VERSION = '0.25';
 $DefaultClass               = 'CGI::LZE::Actions' unless defined $CGI::LZE::Actions::DefaultClass;
 $defaultconfig              = '%CONFIG%';
 

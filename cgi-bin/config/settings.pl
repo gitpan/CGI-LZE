@@ -13,7 +13,7 @@ $VAR1 = {
                     },
           'defaultAction' => 'news',
           'language' => 'en',
-          'version' => '0.24',
+          'version' => '0.25',
           'cgi' => {
                      'bin' => '/srv/www/cgi-bin/',
                      'style' => 'Crystal',
