@@ -1,4 +1,3 @@
-use lib qw(lib/);
 use strict;
 use vars qw($lang);
 use CGI::LZE qw(:lze param $params);

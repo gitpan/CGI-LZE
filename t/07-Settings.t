@@ -1,4 +1,3 @@
-# use lib qw(..lib/);
 use strict;
 use CGI::LZE::Settings;
 use vars qw($settings);

@@ -1,7 +1,6 @@
 package CGI::LZE;
-# use strict;
-# use warnings;
-# use diagnostics;
+use strict;
+use warnings;
 use CGI::LZE::Settings;
 use CGI::LZE::Translate;
 use CGI::LZE::Config;
@@ -28,25 +27,13 @@ use vars qw(
   @EXPORT_OK
   %EXPORT_TAGS
   $defaultconfig
-
 );
-###################################### Subclassing CGI.pm #########################################################
-# Der erste trick ist die CGI package variable $CGI::DefaultClass: Diese Varibale sagt CGI.pm welchen Object typen#
-# es erzeugen muss wenn die FO Syntax benutzt wird. Also den Namen des Objects (hier CGI::LZE). Wenn Du Perl 5.004#
-# oder eine höhere Version benutzt kannst Du den Special Token "__PACKAGE__" benutzen um den aktuellen Modulenamen#
-# ermitteln. Ansonsten must Du den Namen Hart codieren. $CGI::DefaultClass = CGI::LZE;                            #
-###################################################################################################################
+
 $CGI::DefaultClass = 'CGI';
 $DefaultClass      = 'CGI::LZE' unless defined $CGI::LZE::DefaultClass;
 $defaultconfig     = '%CONFIG%';
-
-###################################### $AutoloadClass #############################################################
-# Als nächstes muss Du die package variable $AutoloadClass setzen. Diese Variable sagt CGI.pm wo es nach          #
-# subs sucht die nicht definert wurden. Wenn Du CGI`s autoloader überschreiben willst musst Du diese Variable     #
-# Überschreiben : $AutoloadClass = 'CGI::Lze';                                                                    #
-###################################################################################################################
 $CGI::AutoloadClass = 'CGI';
-$CGI::LZE::VERSION  = '0.25';
+$CGI::LZE::VERSION  = '0.26';
 $mod_perl           = ($ENV{MOD_PERL}) ? 1 : 0;
 our $hold = 120;    #session ist 120 sekunden gültig.
 @ISA              = qw(Exporter CGI );
@@ -125,19 +112,21 @@ CGI::LZE
 
 use CGI::LZE;
 
+=head1 DESCRIPTION
+
+CGI::LZE is a CGI subclass, This Module is mainly written for CGI::LZE::Blog.
+
+But there is no reason to use it not standalone. Also it is much more easier
+
+to update, test and distribute the parts standalone.
+
+You can use CGI::LZE as a standalone "CMS", for session managment or for multilanguage
+
+applications. Look into the example directory ...
+
 =head2 EXPORT
 
-$ACCEPT_LANGUAGE  
-
-translate()
-
-init()
-
-session()
-
-createSession()
-
-$params
+translate init session $lng createSession $params clearSession includeAction
 
 =head1 Public
 
@@ -156,7 +145,7 @@ sub new {
 
         init("/srv/www/cgi-bin/config/settings.pl");
 
-        default: %CONFIG%
+        default: /srv/www/cgi-bin
 
 =cut
 
@@ -175,7 +164,11 @@ sub init {
 
 =head2 include
 
-        include
+        my %vars = (sub => 'main','file' => "fo.pl");
+
+        my $qstring = createSession(\%vars);
+
+        include($qstring);
 =cut
 
 sub include {
@@ -291,9 +284,10 @@ sub session {
 
 =head2 clearSession
 
-nicht mehr gültige parameter löschen.
+delete old sessions. Delete all session older then 120 sec.
 
 =cut
+
 
 sub clearSession {
         foreach my $ua (keys %{$qy}) {
@@ -307,7 +301,7 @@ sub clearSession {
 
 =head2 translate()
 
-translate(key);
+        translate(key);
 
 =cut
 
@@ -327,9 +321,11 @@ sub translate {
         return $key;
 }
 
+=head1 Private
+
 =head2 hook
 
-überprüft wärend des 
+used by include and includeAction.
 
 =cut
 
@@ -349,8 +345,6 @@ sub hook {
         }
 }
 
-=head1 Private
-
 =head2 getSelf()
 
 =cut
@@ -362,7 +356,7 @@ sub getSelf {
 
 =head2 see Also
 
-L<CGI> L<CGI::LZE::Action> L<CGI::LZE::Translate> L<CGI::LZE::Settings> L<CGI::LZE::Config>
+L<CGI> L<CGI::LZE::Actions> L<CGI::LZE::Translate> L<CGI::LZE::Settings> L<CGI::LZE::Config>
 
 =head1 AUTHOR
 

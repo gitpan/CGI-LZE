@@ -1,12 +1,11 @@
 package CGI::LZE::Config;
-
-# use strict;
-# use warnings;
+use strict;
+use warnings;
 require Exporter;
 use vars qw($config $DefaultClass @EXPORT  @ISA $defaultconfig);
 @CGI::LZE::Config::EXPORT  = qw(loadConfig saveConfig $config);
 @ISA                       = qw(Exporter);
-$CGI::LZE::Config::VERSION = '0.25';
+$CGI::LZE::Config::VERSION = '0.26';
 $DefaultClass              = 'CGI::LZE::Config' unless defined $CGI::LZE::Config::DefaultClass;
 $defaultconfig             = '%CONFIG%';
 
@@ -16,20 +15,13 @@ CGI::LZE::Config
 
 =head1 SYNOPSIS
 
-
 =head1 DESCRIPTION
 
-Config for LZE.
+Config for CGI::LZE.
 
 =head2 EXPORT
 
 loadConfig() saveConfig() $config
-
-=head2
-
-required Modules
-
-Data::Dumper
 
 =head1 Public
 
@@ -91,11 +83,35 @@ sub saveConfig {
 
 =head2 getSelf()
 
+see L<HTML::Menu::TreeView>
+
 =cut
 
 sub getSelf {
         return @_ if defined($_[0]) && (!ref($_[0])) && ($_[0] eq 'CGI::LZE::Config');
         return (defined($_[0]) && (ref($_[0]) eq 'CGI::LZE::Config' || UNIVERSAL::isa($_[0], 'CGI::LZE::Config'))) ? @_ : ($CGI::LZE::Config::DefaultClass->new, @_);
 }
+
+=head2 see Also
+
+L<CGI> L<CGI::LZE::Actions> L<CGI::LZE::Translate> L<CGI::LZE::Settings> L<CGI::LZE::Config>
+
+=head1 AUTHOR
+
+Dirk Lindner <lindnerei@o2online.de>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2005-2008 by Hr. Dirk Lindner
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; 
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+=cut
 
 1;

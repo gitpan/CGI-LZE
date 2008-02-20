@@ -1,4 +1,3 @@
-use lib qw(lib/);
 use CGI::LZE::Actions;
 use strict;
 use vars qw($actions);
